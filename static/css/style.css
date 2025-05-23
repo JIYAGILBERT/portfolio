@@ -115,7 +115,7 @@
     display: inline-block;
     padding: 0.8rem 2rem;
     background: var(--primary);
-    color: var(--dark);
+    color: white;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -686,113 +686,64 @@
 
 /* ===== Enhanced Contact Section ===== */
 .contact {
-    background-color: #17222e;
-    padding: 6rem 0;
-    position: relative;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-  
-  .section-title span {
-    color: #06b6d4;
-  }
-  
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #06b6d4, #3b82f6);
-    border-radius: 2px;
-  }
-  
-  .contact-form {
-    max-width: 800px; /* Increased from 600px */
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  .input-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem; /* Increased from 1.5rem */
-    margin-bottom: 2rem; /* Increased from 1.5rem */
-  }
-  
-  .input-box input {
-    flex: 1;
-    min-width: 300px; /* Increased from 200px */
-    padding: 1.2rem; /* Increased from 1rem */
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px; /* Increased from 8px */
-    color: white;
-    font-size: 1.1rem; /* Increased from 1rem */
-    transition: all 0.3s ease;
-  }
-  
-  .input-box input:focus {
-    outline: none;
-    border-color: #06b6d4;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); /* Enhanced glow */
-  }
-  
-  textarea {
-    width: 100%;
-    padding: 1.5rem; /* Increased from 1rem */
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px; /* Increased from 8px */
-    color: white;
-    font-size: 1.1rem; /* Increased from 1rem */
-    min-height: 200px; /* Increased from 150px */
-    resize: vertical;
-    margin-bottom: 2rem; /* Increased from 1.5rem */
-    transition: all 0.3s ease;
-  }
-  
-  textarea:focus {
-    outline: none;
-    border-color: #06b6d4;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); /* Enhanced glow */
-  }
-  
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 1.2rem; /* Increased from 1rem */
-    background: #06b6d4;
-    color: #0f172a;
-    border: none;
-    border-radius: 10px; /* Increased from 8px */
-    font-size: 1.1rem; /* Increased from 1rem */
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .btn:hover {
-    background: #0e9cb8;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(6, 182, 212, 0.4); /* Enhanced shadow */
-  }
-  
-  /* Placeholder styling */
-  ::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1.1rem; /* Increased placeholder text size */
-  }
-  
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .section-title span {
+            color: #007bff;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .input-box {
+            display: flex;
+            gap: 10px;
+        }
+        .input-box input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
   /* ===== Responsive Design ===== */
   @media (max-width: 992px) {
     .contact-form {

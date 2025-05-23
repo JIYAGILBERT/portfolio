@@ -1,33 +1,47 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 
-app=Flask(__name__)
+app = Flask(__name__)
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
+# Configure Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] =  587
 app.config['MAIL_USERNAME'] = 'jiyagilbert1@gmail.com'
-app.config['MAIL_PASSWORD'] = 'bblq jsjt posk gwpl'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_PASSWORD'] = 'bblq jsjt posk gwpl' # App password from Google
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+# Add a secret key for flash messages
+app.config['SECRET_KEY'] = 'your-secret-key'  # Replace with a secure key
 
 mail = Mail(app)
 
 @app.route('/')
 def index():
-    return render_template('indux.html')    
+    return render_template('indux.html')
 
-@app.route('/send_mail',methods=['POST'])
+@app.route('/send_mail', methods=['POST'])
 def send_message():
-    name=request.form['name']
-    email=request.form['email']
-    message=request.form['message']
-    msg = Message(subject='Hello', sender=email, recipients=['jiyagilbert1@gmail.com'])
-    msg.body = f"From: {name}\n {email}\n\nMessage:\n{message}"
-    mail.send(msg)
-    return render_template('index.html', success=True)
+    try:
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
 
+        msg = Message(
+            subject='Portfolio Contact',
+            sender=email,
+            recipients=['sandraks8891@gmail.com']
+        )
+        msg.body = f"From: {name}\nEmail: {email}\n\nMessage:\n{message}"
+        mail.send(msg)
 
+        flash('✅ Message sent successfully!', 'success')
+    except Exception as e:
+        print("Error sending mail:", e)
+        flash('❌ Failed to send message. Try again later.', 'error')
 
+    # Redirect to the index route (GET request)
+    return redirect(url_for('index'))
 
-
-app.run()
+if __name__ == '__main__':
+    app.run(debug=True)

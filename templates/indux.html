@@ -205,7 +205,7 @@
 
                     <div class="col-md-3 col-6 col-sm-6 skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
                         <div class="skill-icon">
-                            <a href="https://www.sqlite.org/index.html" style="text-decoration: none;">
+                            <a href="https://www.sqlite.org/indux.html" style="text-decoration: none;">
                                 <img src="/static/images/sqlite2.svg" alt="MySQL" class="img-fluid mb-2" style="width: 80px; height: 80px;">
                             </a>
                         </div>
@@ -337,24 +337,30 @@
             
 
 
-    <section class="contact" id="contact">
+<section class="contact" id="contact">
         <h2 class="section-title">Contact <span>Me!</span></h2>
+
+        <!-- Display success or error message -->
+        {% if success %}
+            <div class="message success">Message sent successfully!</div>
+        {% elif error %}
+            <div class="message error">{{ error }}</div>
+        {% endif %}
 
         <form action="/send_mail" method="POST" class="contact-form">
             <div class="input-box">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
             </div>
-
             <div class="input-box">
-                <input type="text" placeholder="Mobile Number" required>
-                <!-- <input type="text" placeholder="Email Subject" required> -->
+                <input type="text" name="mobile" placeholder="Mobile Number" required>
             </div>
-
-            <textarea placeholder="Your Message" required></textarea>
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">Send Message</button>
         </form>
     </section>
+</body>
+</html>
 
 
             <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
